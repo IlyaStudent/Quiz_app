@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "272904877371",
+    "firebase_url": "https://quizapp-4bfe8-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "quizapp-4bfe8",
+    "storage_bucket": "quizapp-4bfe8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:272904877371:android:3921f06a79103e1691b31e",
+        "android_client_info": {
+          "package_name": "com.example.project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "272904877371-3509uqpdlenl690hfoea8m84vbt4ejb1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBxmITmqgzrwLYb1aPypaDS3D_FCZaJLp0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "272904877371-3509uqpdlenl690hfoea8m84vbt4ejb1.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "272904877371-bs4mlvfqtcbjndq7u6b70itu164vri2s.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.project"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
