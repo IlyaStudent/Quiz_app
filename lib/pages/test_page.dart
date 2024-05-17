@@ -22,7 +22,10 @@ class _TestPageState extends State<TestPage> {
         Navigator.pushAndRemoveUntil(
             context,
             MaterialPageRoute(
-                builder: (context) => ResultPage(answers: answers)),
+                builder: (context) => ResultPage(
+                      answers: answers,
+                      testName: widget.testInfo.testName,
+                    )),
             (route) => false);
         return;
       }

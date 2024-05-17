@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:project/components/app_bar_menu.dart';
 import 'package:project/pages/home.dart';
+import 'package:project/services/firebase_database.dart';
 
 class ResultPage extends StatefulWidget {
   final List<bool> answers;
-  const ResultPage({super.key, required this.answers});
+  final String testName;
+  const ResultPage({super.key, required this.answers, required this.testName});
 
   @override
   State<ResultPage> createState() => _ResultPageState();
@@ -15,6 +17,9 @@ class _ResultPageState extends State<ResultPage> {
   Widget build(BuildContext context) {
     double result = widget.answers.where((element) => element == true).length /
         widget.answers.length;
+    if (result >= 0.8) {
+      FirebaseDatabase().markTestComplete(widget.testName);
+    }
     return Scaffold(
       appBar: AppBar(
         title: const Text("Результат"),

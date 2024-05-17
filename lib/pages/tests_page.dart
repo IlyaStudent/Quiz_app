@@ -25,7 +25,8 @@ class _TestsPageState extends State<TestsPage> {
     super.initState();
   }
 
-  Widget _buildCard(BuildContext context, String testName, int questNum) {
+  Widget _buildCard(
+      BuildContext context, String testName, int questNum, bool isPassed) {
     return Card.filled(
       child: SizedBox(
         width: MediaQuery.sizeOf(context).width * 0.9,
@@ -44,13 +45,26 @@ class _TestsPageState extends State<TestsPage> {
               ),
             ),
             Padding(
-                padding: const EdgeInsets.only(top: 15, left: 10),
-                child: Text(
-                  testName,
-                  style: Theme.of(context).textTheme.headlineLarge,
+                padding: const EdgeInsets.only(top: 15, left: 10, right: 10),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
+                      testName,
+                      style: Theme.of(context).textTheme.headlineLarge,
+                    ),
+                    isPassed
+                        ? Icon(
+                            Icons.verified,
+                            color: Theme.of(context).colorScheme.primary,
+                            size: 40,
+                          )
+                        : const SizedBox(),
+                  ],
                 )),
             Padding(
-              padding: EdgeInsets.only(left: 10, bottom: 15),
+              padding: const EdgeInsets.only(left: 10, bottom: 15),
               child: Text(
                 "$questNum вопросов",
                 style: Theme.of(context)
@@ -101,14 +115,16 @@ class _TestsPageState extends State<TestsPage> {
                                         testInfo: TestInfo(
                                             testName: testNames![index],
                                             answers: snapshot
-                                                .data![testNames![index]]),
+                                                    .data![testNames![index]]
+                                                ["questions"]),
                                       )));
                         },
                         child: _buildCard(
-                          context,
-                          testNames![index],
-                          snapshot.data![testNames![index]].keys.length,
-                        ),
+                            context,
+                            testNames![index],
+                            snapshot.data![testNames![index]]["questions"].keys
+                                .length,
+                            snapshot.data![testNames![index]]["isPassed"]),
                       );
                     }),
                   );

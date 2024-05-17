@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:project/services/auth_service.dart';
+import 'package:project/services/firebase_database.dart';
 
 class RegisterPage extends StatelessWidget {
   final Function()? togglePages;
@@ -59,6 +60,7 @@ class RegisterPage extends StatelessWidget {
         );
         await FirebaseAuth.instance.currentUser!
             .updateDisplayName(nameController.text);
+        await FirebaseDatabase().makeUserResultsInDb();
       } on FirebaseAuthException catch (e) {
         wrongData(e.code, context);
       }
